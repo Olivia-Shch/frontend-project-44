@@ -12,3 +12,11 @@ https://asciinema.org/a/y6x96po32SpXETh562gsGAGyx
 
 Игра: "НОД":
 https://asciinema.org/a/JmOnzrIcoZ7N4szaXs6m11ZAg
+
+
+Игра: "Арифметическая прогрессия":
+https://asciinema.org/a/gEjWizY2kvjCGr31WF95cHbk7
+
+
+Игра "Простое ли число?":
+https://asciinema.org/a/ahzwGVBTBWivnDrRdxQBllLEZ
