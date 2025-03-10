@@ -2,7 +2,11 @@ import launchGame from '../index.js';
 import getRandomNumber from '../random.js';
 
 const isPrime = (num) => {
-  for (let i = 2; i < num / 2; i += 1) {
+if (num < 2) return false;
+if (num === 2) return true;
+if (num % 2 === 0) return false;
+
+  for (let i = 3; i <= Math.sqrt(num); i += 2) {
     if (num % i === 0) {
       return false;
     }
