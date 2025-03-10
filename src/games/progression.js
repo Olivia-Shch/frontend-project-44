@@ -8,7 +8,8 @@ const getProgression = (start, step, length) => {
 const generateQuestionProgression = () => {
   const start = getRandomNumber(1, 50);
   const length = getRandomNumber(5, 10);
-  const step = getRandomNumber(1, 10);
+  const step = getRandomNumber(-10, 10);
+  if (step === 0) step =1;
   const skip = getRandomNumber(0, length - 1);
   const progression = getProgression(start, step, length);
   const correctAnswer = String(progression[skip]);
