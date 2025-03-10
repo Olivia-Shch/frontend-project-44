@@ -2,7 +2,7 @@ import launchGame from '../index.js';
 import getRandomNumber from '../random.js';
 
 const getProgression = (start, step, length) => {
-  Array.from({ length }, (_, i) => start + i * step);
+  return Array.from({ length }, (_, i) => start + i * step);
 };
 
 const generateQuestionProgression = () => {
@@ -13,9 +13,9 @@ const generateQuestionProgression = () => {
   const skip = getRandomNumber(0, length - 1);
   const progression = getProgression(start, step, length);
   const correctAnswer = String(progression[skip]);
-  const question = progression
+  const question = `Question: ${progression
     .map((num, idx) => (idx === skip ? '..' : num))
-    .join(' ');
+    .join(' ')}`;
   return [question, correctAnswer];
 };
 const rulesGame = 'What number is missing in the progression?';
