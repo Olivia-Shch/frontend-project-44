@@ -1,27 +1,20 @@
 import launchGame from '../index.js';
 import getRandomNumber from '../random.js';
 
-const getProgression = (num, difference, len) => {
-  const progression = [];
-  let number = num;
-  let count = 0;
-  while (count !== len) {
-    progression.push(number);
-    number += difference;
-    count += 1;
-  }
-
-  return progression;
+const getProgression = (start, step, length) => {
+  return Array.from({ length }, (_, i) => start + i * step);
 };
 
 const generateQuestionProgression = () => {
-  const number = getRandomNumber(50);
-  const len = getRandomNumber(11, 5);
-  const skip = getRandomNumber(len);
-  const difference = getRandomNumber(21, -20);
-  const progression = getProgression(number, difference, len);
+  const start = getRandomNumber(50);
+  const length = getRandomNumber(6, 11);
+  const step = getRandomNumber(-10, 10) || 1;
+  const skip = getRandomNumber(0, length - 1);
+  const progression = getProgression(start, step, length);
   const correctAnswer = String(progression[skip]);
-  const question = String(progression).replaceAll(',', ' ').replace(correctAnswer, '..', 1);
+  const question = progression
+    .map((num, idx) => (idx === skip ? '..' : num))
+    .join('');
   return [question, correctAnswer];
 };
 const rulesGame = 'What number is missing in the progression?';
