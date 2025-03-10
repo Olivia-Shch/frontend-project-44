@@ -1,28 +1,28 @@
 import launchGame from '../index.js';
 import getRandomNumber from '../random.js';
 
-const generateQuestion = (start, diff, length, ind) => {
-  const filledArray = Array.apply(0, Array(length)).map(() => (start));
-  const arrayWithProgression = filledArray.map((el, index) => {
-    const result = el + diff * index;
-    return index === ind ? '..' : result;
-  }, 1);
-  return arrayWithProgression.join(' ');
+const getProgression = (num, difference, len) => {
+  const progression = [];
+  let number = num;
+  let count = 0;
+  while (count !== len) {
+    progression.push(number);
+    number += difference;
+    count += 1;
+  }
+  return progression;
 };
 
-const lengthOfProgression = 10;
-
-const description = 'What number is missing in the progression?';
-
-const getQuestionAndAnswer = () => {
-  const start = getRandomNum();
-  const diff = getRandomNum();
-  const indexOfHiddenValue = getRandomNum(0, lengthOfProgression - 1);
-  const question = generateQuestion(start, diff, lengthOfProgression, indexOfHiddenValue);
-  const answer = `${start + diff * indexOfHiddenValue}`;
-  return [question, answer];
+const generateQuestionProgression = () => {
+  const number = getRandomNumber(50);
+  const len = getRandomNumber(11, 5);
+  const skip = getRandomNumber(len);
+  const difference = getRandomNumber(21, -20);
+  const progression = getProgression(number, difference, len);
+  const correctAnswer = String(progression[skip]);
+  const question = String(progression).replaceAll(',', ' ').replace(correctAnswer, '..', 1);
+  return [question, correctAnswer];
 };
-
-const start = () => startGame(getQuestionAndAnswer, description);
-
-export default start;
+const rulesGame = 'What number is missing in the progression?';
+const startProgressionGame = () => launchGame(rulesGame, generateQuestionProgression);
+export default startProgressionGame;
