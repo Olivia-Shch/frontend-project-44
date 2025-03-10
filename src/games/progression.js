@@ -2,7 +2,7 @@ import launchGame from '../index.js';
 import getRandomNumber from '../random.js';
 
 const getProgression = (start, step, length) => {
-  return Array.from({ length }, (_, i) => start + i * step);
+  Array.from({ length }, (_, i) => start + i * step);
 };
 
 const generateQuestionProgression = () => {
