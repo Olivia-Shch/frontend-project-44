@@ -11,8 +11,8 @@ const calc = (a, b, operation) => {
 };
 
 const generateQuestionCalc = () => {
-  const number1 = getRandomNumber(100);
-  const number2 = getRandomNumber(100);
+  const number1 = getRandomNumber(0, 100);
+  const number2 = getRandomNumber(0, 100);
   const operations = ['*', '+', '-'];
   const operation = operations[getRandomNumber(3)];
   const question = `${number1} ${operation} ${number2}`;
