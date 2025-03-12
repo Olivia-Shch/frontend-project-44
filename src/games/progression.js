@@ -16,7 +16,7 @@ const getProgression = (num, difference, len) => {
 const generateQuestionProgression = () => {
   const number = getRandomNumber(50);
   const len = getRandomNumber(11, 5);
-  const skip = getRandomNumber(len);
+  const skip = getRandomNumber(0, len - 1);
   const difference = getRandomNumber(21, -20);
   const progression = getProgression(number, difference, len);
   const correctAnswer = String(progression[skip]);
