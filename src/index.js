@@ -3,11 +3,11 @@ import getGreeting from './cli.js';
 
 const countRounds = 3;
 
-const launchGame = (rules, defGame) => {
+const launchGame = (rules, generateRound) => {
   const userName = getGreeting();
   console.log(rules);
   for (let i = 0; i < countRounds; i += 1) {
-    const [question, answer] = defGame();
+    const [question, answer] = generateRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
     if (answer !== userAnswer) {

@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Olivia-Shch/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Olivia-Shch/frontend-project-44/actions)",
+  "description": "Brain Games - first study project (Hexlet)",
   "main": "index.js",
   "type": "module",
   "bin": {
