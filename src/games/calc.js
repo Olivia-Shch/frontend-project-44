@@ -14,7 +14,7 @@ const generateQuestionCalc = () => {
   const number1 = getRandomNumber(0, 100);
   const number2 = getRandomNumber(0, 100);
   const operations = ['*', '+', '-'];
-  const operation = operations[getRandomNumber(3)];
+  const operation = operations[getRandomNumber(0, operations.length - 1)];
   const question = `${number1} ${operation} ${number2}`;
   const correctAnswer = String(calc(number1, number2, operation));
   return [question, correctAnswer];
